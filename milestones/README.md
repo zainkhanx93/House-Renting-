@@ -1,1 +1,1 @@
-# Documentation about milestone 1 and 2 here.
+# Documentation about milestone 1 and 2 here
