@@ -1,0 +1,11 @@
+{
+  "name": "house-renting-system",
+  "version": "1.0.0",
+  "description": "csc 675-775-03-Team01",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
