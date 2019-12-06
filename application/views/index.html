@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DB Operations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h3>DB Operations</h3>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#search" role="tab" data-toggle="tab">Search</a></li>
+                <li><a href="#insert" role="tab" data-toggle="tab">Insert</a></li>
+                <li><a href="#update" role="tab" data-toggle="tab">Update</a></li>
+                <li><a href="#delete" role="tab" data-toggle="tab">Delete</a></li>
+            </ul>
+
+        </div>
+
+        <!-- Tab panes + Panel body -->
+        <div class="panel-body tab-content">
+            <div class="tab-pane active" id="search">
+                <div class="row">
+
+                    <!-- Navigation Buttons -->
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked" id="myTabs">
+                            <li class="active"><a href="#searchOneToOne" data-toggle="pill">One to One</a></li>
+                            <li><a href="#searchOneToMany" data-toggle="pill">One to Many</a></li>
+                            <li><a href="#searchManyToOne" data-toggle="pill">Many to One</a></li>
+                            <li><a href="#searchManyToMany" data-toggle="pill">Many to Many</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="searchOneToOne">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Listing ID
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" id="searchOneOnOneList">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                    </ul>
+                                </div>
+                                <div id="divCharge" style="margin-top: 25px"> </div>
+                            </div>
+
+                            <div class="tab-pane" id="searchOneToMany">One to Many</div>
+                            <div class="tab-pane" id="searchManyToOne">Many to One</div>
+                            <div class="tab-pane" id="searchManyToMany">Many to Many</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane" id="insert">Insert</div>
+            <div class="tab-pane" id="update">Update</div>
+            <div class="tab-pane" id="delete">Delete</div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="../javascripts/searchHelper.js"></script>
+</html>
