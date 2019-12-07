@@ -13,40 +13,20 @@ router.post("/user", (req, res) => {
 
   // Check if user with given email already exists
   // if so, send error, if not, insert into user, renter, rentee table
-  var checkEmailQuery = "SELECT * FROM User WHERE email = '" + email + "';";
-  console.log(checkEmailQuery);
+  var checkEmailQuery = `SELECT * FROM User WHERE email = '${email}'`;
   db.execute(checkEmailQuery, (err, user) => {
     if (err) console.log(err);
     if (user.length > 0) res.send("Email already used to make User");
     else {
-      var insertUserQuery =
-        `INSERT INTO User (name, email, dob, contactno) VALUES ( "` +
-        name +
-        `", "` +
-        email +
-        `", "` +
-        dob +
-        `", ` +
-        contactno +
-        `) ;`;
+      var insertUserQuery = `INSERT INTO User (name, email, dob, contactno) VALUES ( "${name}", "${email}", "${dob}", ${contactno});`;
 
-      //   console.log(insertUserQuery);
+      //console.log(insertUserQuery);
 
       db.execute(insertUserQuery, (err, result) => {
         if (err) console.log(err);
         else {
-          var insertRenteeQuery =
-            "INSERT INTO Rentee (renteeId, uid) VALUES ( " +
-            result.insertId +
-            ", " +
-            result.insertId +
-            ");";
-          var insertRenterQuery =
-            "INSERT INTO Renter (renterId, uid) VALUES ( " +
-            result.insertId +
-            ", " +
-            result.insertId +
-            ");";
+          var insertRenteeQuery = `INSERT INTO Rentee (renteeId, uid) VALUES ( ${result.insertId}, ${result.insertId});`;
+          var insertRenterQuery = `INSERT INTO Renter (renterId, uid) VALUES ( ${result.insertId}, ${result.insertId});`;
 
           async.parallel(
             [
@@ -65,7 +45,6 @@ router.post("/user", (req, res) => {
             ],
             function(err) {
               if (err) console.log(err);
-              db.end();
               res.send({
                 success: true,
                 message: result.insertId
@@ -86,17 +65,10 @@ router.post("/account", (req, res) => {
   //   console.log(password);
   //   console.log(uid);
 
-  var checkUidQuery = "SELECT * FROM User WHERE uid = " + uid;
-  var checkUsernameQuery =
-    "SELECT * FROM Account WHERE username = '" + username + "' OR uid = " + uid;
-  var insertAccountQuery =
-    "INSERT INTO Account (username, password, uid) VALUES ( '" +
-    username +
-    "', SHA1('" +
-    password +
-    "'), " +
-    uid +
-    ");";
+  var checkUidQuery = `SELECT * FROM User WHERE uid = ${uid};`;
+
+  var checkUsernameQuery = `SELECT * FROM Account WHERE username = '${username}' OR uid = ${uid};`;
+  var insertAccountQuery = `INSERT INTO Account (username, password, uid) VALUES ( '${username}', SHA1('${password}'), ${uid});`;
 
   // check if user exists, continue if true
   // then check if account exists with given username or uid, continue if false
@@ -112,7 +84,6 @@ router.post("/account", (req, res) => {
         else {
           db.execute(insertAccountQuery, (err, result) => {
             if (err) console.log(err);
-            db.end();
             res.send({
               success: true,
               message: result.insertId
@@ -140,18 +111,8 @@ router.post("/listing", (req, res) => {
     cleaning
   } = body;
 
-  var checkRenterIdQuery =
-    "SELECT * FROM Renter WHERE renterId = " + renterId + ";";
-  var insertListingQuery =
-    "INSERT INTO Listing (location, type, rooms, renterId) VALUES ( '" +
-    location +
-    "', '" +
-    type +
-    "', " +
-    rooms +
-    ", " +
-    renterId +
-    ");";
+  var checkRenterIdQuery = `SELECT * FROM Renter WHERE renterId = ${renterId};`;
+  var insertListingQuery = `INSERT INTO Listing (location, type, rooms, renterId) VALUES ( '${location}', '${type}', ${rooms}, ${renterId});`;
 
   // check if renter (listing owner) exists, if true continue
   // insert into listing, charges, amenities, and house/apartment/studio tables
@@ -162,34 +123,9 @@ router.post("/listing", (req, res) => {
       db.execute(insertListingQuery, (err, result) => {
         if (err) console.log(err);
         else {
-          var insertChargesQuery =
-            "INSERT INTO Charges (lid, perday, deposit, cleaning) VALUES ( " +
-            result.insertId +
-            ", " +
-            perday +
-            ", " +
-            deposit +
-            ", " +
-            cleaning +
-            ");";
-          var insertAmenitiesQuery =
-            "INSERT INTO Amenities (lid, parking, wifi, ac, pool) VALUES ( " +
-            result.insertId +
-            ", " +
-            parking +
-            ", " +
-            wifi +
-            ", " +
-            ac +
-            ", " +
-            pool +
-            ");";
-          var insertTypeQuery =
-            "INSERT INTO " +
-            type +
-            " (lid) VALUES ( " +
-            result.insertId +
-            " );";
+          var insertChargesQuery = `INSERT INTO Charges (lid, perday, deposit, cleaning) VALUES ( ${result.insertId}, ${perday}, ${deposit}, ${cleaning});`;
+          var insertAmenitiesQuery = `INSERT INTO Amenities (lid, parking, wifi, ac, pool) VALUES ( ${result.insertId}, ${parking}, ${wifi}, ${ac}, ${pool});`;
+          var insertTypeQuery = `INSERT INTO ${type} (lid) VALUES (${result.insertId});`;
 
           async.parallel(
             [
@@ -214,7 +150,6 @@ router.post("/listing", (req, res) => {
             ],
             function(err) {
               if (err) console.log(err);
-              db.end();
               res.send({
                 success: true,
                 message: result.insertId
@@ -231,19 +166,9 @@ router.post("/booking", (req, res) => {
   var { body } = req;
   var { renteeId, startdate, enddate, noofguests, lid } = body;
 
-  var checkRenteeIdQuery =
-    "SELECT * FROM Rentee WHERE renteeId = " + renteeId + ";";
-  var checkLidQuery = "SELECT * FROM listing WHERE lid = " + lid + ";";
-  var insertBookingQuery =
-    "INSERT INTO Booking (startdate, enddate, noofguests, lid) VALUES ( '" +
-    startdate +
-    "', '" +
-    enddate +
-    "', " +
-    noofguests +
-    ", " +
-    lid +
-    ");";
+  var checkRenteeIdQuery = `SELECT * FROM Rentee WHERE renteeId = ${renteeId};`;
+  var checkLidQuery = `SELECT * FROM listing WHERE lid = ${lid};`;
+  var insertBookingQuery = `INSERT INTO Booking (startdate, enddate, noofguests, lid) VALUES ( '${startdate}', '${enddate}', ${noofguests}, ${lid});`;
 
   // check if rentee and listing exists, if true, continue
   // insert into booking and rentee_booking tables
@@ -268,16 +193,10 @@ router.post("/booking", (req, res) => {
       db.execute(insertBookingQuery, (err, result) => {
         if (err) console.log(err);
         else {
-          var insertRenteeBookingQuery =
-            "INSERT INTO Rentee_Booking (renteeId, bid) VALUES ( " +
-            renteeId +
-            ", " +
-            result.insertId +
-            ");";
+          var insertRenteeBookingQuery = `INSERT INTO Rentee_Booking (renteeId, bid) VALUES ( ${renteeId}, ${result.insertId});`;
 
           db.execute(insertRenteeBookingQuery, (err, result) => {
             if (err) console.log(err);
-            db.end();
             res.send({
               success: true
             });
