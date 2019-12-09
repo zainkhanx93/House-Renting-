@@ -20,9 +20,11 @@ app.set("view engine", "html");
 const routes = require("./routes/index")(app);
 const insertRouter = require("./routes/insertRoutes");
 const searchRouter = require("./routes/searchRoutes");
+const updateRouter = require("./routes/updateRoutes");
 
 app.use("/", insertRouter);
 app.use("/", searchRouter);
+app.use("/", updateRouter);
 
 app.get("/hi", (req, res) => {
   res.send("Hello World");
