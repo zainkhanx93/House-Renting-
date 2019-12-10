@@ -21,10 +21,12 @@ const routes = require("./routes/index")(app);
 const insertRouter = require("./routes/insertRoutes");
 const searchRouter = require("./routes/searchRoutes");
 const updateRouter = require("./routes/updateRoutes");
+const deleteRouter = require("./routes/deleteRoutes");
 
 app.use("/", insertRouter);
 app.use("/", searchRouter);
 app.use("/", updateRouter);
+app.use("/", deleteRouter);
 
 app.get("/hi", (req, res) => {
   res.send("Hello World");
