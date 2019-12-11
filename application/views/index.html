@@ -34,7 +34,7 @@
                             <li class="active"><a href="#searchOneToOne" data-toggle="pill">One to One</a></li>
                             <li><a href="#searchOneToMany" data-toggle="pill">One to Many</a></li>
                             <li><a href="#searchManyToOne" data-toggle="pill">Many to One</a></li>
-                            <li><a href="#searchManyToMany" data-toggle="pill">Many to Many</a></li>
+                            <li id = "searchManyToManyData"><a href="#searchManyToMany" data-toggle="pill">Many to Many</a></li>
                         </ul>
                     </div>
 
@@ -51,12 +51,34 @@
                                         <li><a href="#">3</a></li>
                                     </ul>
                                 </div>
-                                <div id="divCharge" style="margin-top: 25px"> </div>
+                                <div id="divSearchOneToOne" style="margin-top: 25px"> </div>
                             </div>
 
-                            <div class="tab-pane" id="searchOneToMany">One to Many</div>
-                            <div class="tab-pane" id="searchManyToOne">Many to One</div>
-                            <div class="tab-pane" id="searchManyToMany">Many to Many</div>
+
+                            <div class="tab-pane" id="searchOneToMany">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Listing ID
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" id="searchOneOnManyList">
+
+                                    </ul>
+                                </div>
+                                <div id="divSearchOneToMany" style="margin-top: 25px"> </div>
+                            </div>
+
+                            <div class="tab-pane" id="searchManyToOne">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Listing ID
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" id="searchManyOnOneList">
+
+                                    </ul>
+                                </div>
+                                <div id="divSearchManyToOne" style="margin-top: 25px"> </div>
+                            </div>
+                            <div class="tab-pane" id = "searchManyToMany">
+                                <div id="divSearchManyToMany" style="margin-top: 25px"> </div>
+                            </div>
                         </div>
                     </div>
 

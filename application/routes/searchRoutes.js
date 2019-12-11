@@ -45,7 +45,7 @@ router.get("/listingManyToOne", (req, res) => {
 });
 
 router.get("/bookingManyToMany", (req, res) => {
-  var selectBookingManyToMany = `SELECT Rentee.renteeId AS RenterID, Booking.bid AS BookingID FROM Rentee_Booking JOIN Rentee, Booking WHERE Rentee.renteeId = Rentee_Booking.renteeId AND Booking.bid = Rentee_Booking.bid;`;
+  var selectBookingManyToMany = `SELECT Rentee.renteeId AS RenterID, Booking.bid AS BookingID, Booking.startdate AS Startdate, Booking.enddate, Booking.noofguests  FROM Rentee_Booking JOIN Rentee, Booking WHERE Rentee.renteeId = Rentee_Booking.renteeId AND Booking.bid = Rentee_Booking.bid;`;
   db.execute(selectBookingManyToMany, (err, bookings) => {
     if (err) console.log(err);
     res.send(bookings);
