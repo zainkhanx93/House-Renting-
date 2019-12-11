@@ -11,14 +11,6 @@ router.get("/listingIds", (req, res) => {
   });
 });
 
-router.get("/bookingIds", (req, res) => {
-  var getBookingIds = `SELECT DISTINCT bid FROM booking ORDER BY bid`;
-  db.execute(getBookingIds, (err, bookingIds) => {
-    if (err) console.log(err);
-    res.send(bookingIds);
-  });
-});
-
 router.get("/listingOneToOne", (req, res) => {
   var { query } = req;
   var { lid } = query;
@@ -53,10 +45,7 @@ router.get("/listingManyToOne", (req, res) => {
 });
 
 router.get("/bookingManyToMany", (req, res) => {
-  var { query } = req;
-  var { bid } = query;
-
-  var selectBookingManyToMany = `SELECT Rentee.renteeId AS RenterID, Booking.bid AS BookingID FROM Rentee_Booking JOIN Rentee, Booking WHERE Rentee.renteeId = Rentee_Booking.renteeId AND Booking.bid = Rentee_Booking.bid AND Booking.bid = ${bid};`;
+  var selectBookingManyToMany = `SELECT Rentee.renteeId AS RenterID, Booking.bid AS BookingID FROM Rentee_Booking JOIN Rentee, Booking WHERE Rentee.renteeId = Rentee_Booking.renteeId AND Booking.bid = Rentee_Booking.bid;`;
   db.execute(selectBookingManyToMany, (err, bookings) => {
     if (err) console.log(err);
     res.send(bookings);
