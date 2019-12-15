@@ -86,11 +86,97 @@
             </div>
             <div class="tab-pane" id="insert">Insert</div>
             <div class="tab-pane" id="update">Update</div>
-            <div class="tab-pane" id="delete">Delete</div>
+            <div class="tab-pane" id="delete">
+                <div class="row">
+
+                    <!-- Navigation Buttons -->
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked" id="deleteTabs">
+                            <li class="active"><a href="#userPanel" data-toggle="pill">User</a></li>
+                            <li><a href="#accountPanel" data-toggle="pill">Account</a></li>
+                            <li><a href="#renteePanel" data-toggle="pill">Rentee</a></li>
+                            <li><a href="#renterPanel" data-toggle="pill">Renter</a></li>
+                            <li><a href="#listingPanel" data-toggle="pill">Listing</a></li>
+                            <li ><a href="#bookingPanel" data-toggle="pill">Booking</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="userPanel">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+
+                                         <ul class="dropdown-menu" id="userList"></ul>
+                                        <button id="deleteUser" style="margin-top: 25px">Delete</button>
+
+                                </div>
+                                <div id="divUser" style="margin-top: 25px"> </div>
+                            </div>
+
+
+                            <div class="tab-pane" id="accountPanel">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" id="accountList"></ul>
+                                        <button id="deleteAccount" style="margin-top: 25px">Delete</button>
+                                </div>
+                                <div id="divAccount" style="margin-top: 25px"> </div>
+                            </div>
+
+                            <div class="tab-pane" id="renteePanel">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" id="renteeList"></ul>
+                                        <button id="deleteRentee" style="margin-top: 25px">Delete</button>
+                                </div>
+                                <div id="divRentee" style="margin-top: 25px"> </div>
+                            </div>
+
+                            <div class="tab-pane" id="renterPanel">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" id="renterList"></ul>
+                                        <button id="deleteRenter" style="margin-top: 25px">Delete</button>
+                                </div>
+
+                                <div id="divRenter" style="margin-top: 25px"> </div>
+                            </div>
+
+                            <div class="tab-pane" id="listingPanel">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu" id="listingList"> </ul>
+                                        <button id="deleteListing" style="margin-top: 25px">Delete</button>
+                                </div>
+                                <div id="divListing" style="margin-top: 25px"> </div>
+                            </div>
+
+                            <div class="tab-pane" id="bookingPanel">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">
+                                        <span class="caret"></span></button>
+                                     <ul class="dropdown-menu" id="bookingList"></ul>
+                                    <button id="deleteBooking" style="margin-top: 25px">Delete</button>
+                                </div>
+                                <div id="divBooking" style="margin-top: 25px"> </div>
+                            </div>
+                            <div id="deleteVal"></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
         </div>
     </div>
 </div>
 </body>
 
 <script src="../javascripts/searchHelper.js"></script>
+<script src="../javascripts/deleteHelper.js"></script>
 </html>

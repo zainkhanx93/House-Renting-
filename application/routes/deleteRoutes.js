@@ -3,7 +3,7 @@ const db = require("../model/database.js");
 const async = require("async");
 const router = express.Router();
 
-router.post("/deleteUser", (req, res) => {
+router.get("/deleteUser", (req, res) => {
   var { body } = req;
   var { uid } = body;
 
@@ -24,7 +24,7 @@ router.post("/deleteUser", (req, res) => {
   });
 });
 
-router.post("/deleteAccount", (req, res) => {
+router.get("/deleteAccount", (req, res) => {
   var { body } = req;
   var { aid } = body;
 
@@ -45,7 +45,7 @@ router.post("/deleteAccount", (req, res) => {
   });
 });
 
-router.post("/deleteRentee", (req, res) => {
+router.get("/deleteRentee", (req, res) => {
   var { query } = req;
   var { renteeId } = query;
 
@@ -66,7 +66,7 @@ router.post("/deleteRentee", (req, res) => {
   });
 });
 
-router.post("/deleteRenter", (req, res) => {
+router.get("/deleteRenter", (req, res) => {
   var { body } = req;
   var { renterId } = body;
 
@@ -87,7 +87,7 @@ router.post("/deleteRenter", (req, res) => {
   });
 });
 
-router.post("/deleteListing", (req, res) => {
+router.get("/deleteListing", (req, res) => {
   var { body } = req;
   var { lid } = body;
 
@@ -108,7 +108,7 @@ router.post("/deleteListing", (req, res) => {
   });
 });
 
-router.post("/deleteBooking", (req, res) => {
+router.get("/deleteBooking", (req, res) => {
   var { body } = req;
   var { bid } = body;
 
@@ -128,5 +128,44 @@ router.post("/deleteBooking", (req, res) => {
     }
   });
 });
+
+/*******select ids for delete****/
+
+router.get("/userIds", (req, res) => {
+  db.execute(`SELECT DISTINCT uid FROM User ORDER BY uid`, (err, result) => {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
+
+router.get("/accountIds", (req, res) => {
+  db.execute(`SELECT DISTINCT aid FROM Account ORDER BY aid`, (err, result) => {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
+
+router.get("/renterIds", (req, res) => {
+  db.execute(`SELECT DISTINCT renterId FROM Renter ORDER BY renterId`, (err, result) => {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
+
+
+router.get("/renteeIds", (req, res) => {
+  db.execute(`SELECT DISTINCT renteeId FROM Rentee ORDER BY renteeId`, (err, result) => {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
+
+router.get("/bookingIds", (req, res) => {
+  db.execute(`SELECT DISTINCT bid FROM Booking ORDER BY bid`, (err, result) => {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
+
 
 module.exports = router;
