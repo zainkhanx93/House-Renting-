@@ -12,6 +12,10 @@ $(document).on('click', '.dropdown-menu li a', function (e) {
 });
 
 $(document).ready(function () {
+    clearAndPopulateLists();
+});
+
+function clearAndPopulateLists() {
     $("#userList").html("");
     $("#accountList").html("");
     $("#renterList").html("");
@@ -26,7 +30,7 @@ $(document).ready(function () {
     populateData("listingIds","listingList", "lid");
     populateData("bookingIds","bookingList", "bid");
 
-});
+}
 
 function populateData(url, elem, val){
     $.ajax({
@@ -42,9 +46,7 @@ function populateData(url, elem, val){
 }
 
 
-
 $("#deleteUser").click(function (e) {
-
     sendRequest("deleteUser?uid="+$("#deleteVal").html(),"divUser");
 });
 
@@ -65,37 +67,17 @@ $("#deleteRentee").click(function (e) {
 });
 
 $("#deleteListing").click(function (e) {
-   alert($("#deleteVal").html());
     sendRequest("deleteListing?lid="+$("#deleteVal").html(),"divListing");
 });
 
-$("#deleteOption").click(function (e) {
-    /*$("#deleteMessage").html("");
-    let option =  e.target.text;
-
-    switch (option) {
-        case "User": sendRequest("deleteUser", option);
-                         break;
-        case "Account": sendRequest("deleteAccount", option);
-                         break;
-        case "Renter": sendRequest("deleteRenter", option);
-                         break;
-        case "Rentee": sendRequest("deleteRentee", option);
-                        break;
-        case "Listing": sendRequest("deleteListing", option);
-                        break;
-        case "Booking": sendRequest("deleteBooking", option);
-                        break;
-    }
-*/
-
-});
 
 function sendRequest(url, elem) {
     $.ajax({
         url: url,
         context: document.body
     }).done(function(text) {
-        $("#"+elem).append(text[0]);
+        $("#"+elem).html("");
+        $("#"+elem).append(text);
+        clearAndPopulateLists();
     });
 }

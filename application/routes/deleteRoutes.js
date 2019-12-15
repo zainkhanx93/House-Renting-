@@ -4,8 +4,8 @@ const async = require("async");
 const router = express.Router();
 
 router.get("/deleteUser", (req, res) => {
-  var { body } = req;
-  var { uid } = body;
+  var { query } = req;
+  var { uid } = query;
 
   let checkUser = `SELECT * FROM User WHERE uid = ${uid};`;
   let deleteUser = `DELETE FROM User WHERE uid = ${uid};`;
@@ -17,7 +17,7 @@ router.get("/deleteUser", (req, res) => {
       db.execute(deleteUser, (err, result) => {
         if (err) console.log(err);
         else {
-          res.send("User deleted");
+          res.send("User with user ID - "+uid+" is deleted");
         }
       });
     }
@@ -25,8 +25,8 @@ router.get("/deleteUser", (req, res) => {
 });
 
 router.get("/deleteAccount", (req, res) => {
-  var { body } = req;
-  var { aid } = body;
+  var { query } = req;
+  var { aid } = query;
 
   let checkAccount = `SELECT * FROM Account WHERE aid = ${aid};`;
   let deleteAccount = `DELETE FROM Account WHERE aid = ${aid};`;
@@ -38,7 +38,7 @@ router.get("/deleteAccount", (req, res) => {
       db.execute(deleteAccount, (err, result) => {
         if (err) console.log(err);
         else {
-          res.send("Account deleted");
+          res.send("Account with account ID - "+aid+" is deleted");
         }
       });
     }
@@ -59,7 +59,7 @@ router.get("/deleteRentee", (req, res) => {
       db.execute(deleteRentee, (err, result) => {
         if (err) console.log(err);
         else {
-          res.send("Rentee deleted");
+          res.send("Rentee with rentee ID -"+ renteeId +" is deleted");
         }
       });
     }
@@ -67,12 +67,13 @@ router.get("/deleteRentee", (req, res) => {
 });
 
 router.get("/deleteRenter", (req, res) => {
-  var { body } = req;
-  var { renterId } = body;
+  var { query } = req;
+  var { renterId } = query;
 
   let checkRenter = `SELECT * FROM Renter WHERE renterId = ${renterId};`;
   let deleteRenter = `DELETE FROM Renter WHERE renterId = ${renterId};`;
 
+  console.log(checkRenter);
   db.execute(checkRenter, (err, renter) => {
     if (err) console.log(err);
     if (renter.length < 1) res.send("Renter does not exist");
@@ -80,7 +81,7 @@ router.get("/deleteRenter", (req, res) => {
       db.execute(deleteRenter, (err, result) => {
         if (err) console.log(err);
         else {
-          res.send("Renter deleted");
+          res.send("Renter with renter ID - "+renterId+" is deleted");
         }
       });
     }
@@ -88,8 +89,8 @@ router.get("/deleteRenter", (req, res) => {
 });
 
 router.get("/deleteListing", (req, res) => {
-  var { body } = req;
-  var { lid } = body;
+  var { query } = req;
+  var { lid } = query;
 
   let checkListing = `SELECT * FROM Listing WHERE lid = ${lid};`;
   let deleteListing = `DELETE FROM Listing WHERE lid = ${lid};`;
@@ -101,7 +102,7 @@ router.get("/deleteListing", (req, res) => {
       db.execute(deleteListing, (err, result) => {
         if (err) console.log(err);
         else {
-          res.send("Listing deleted");
+          res.send("Listing with listing ID -"+lid+" is deleted");
         }
       });
     }
@@ -109,8 +110,8 @@ router.get("/deleteListing", (req, res) => {
 });
 
 router.get("/deleteBooking", (req, res) => {
-  var { body } = req;
-  var { bid } = body;
+  var { query } = req;
+  var { bid } = query;
 
   let checkBooking = `SELECT * FROM Booking WHERE uid = ${bid};`;
   let deleteBooking = `DELETE FROM Booking WHERE uid = ${bid};`;
@@ -122,7 +123,7 @@ router.get("/deleteBooking", (req, res) => {
       db.execute(deleteBooking, (err, result) => {
         if (err) console.log(err);
         else {
-          res.send("Booking deleted");
+          res.send("Booking with booking ID - "+bid+" is deleted");
         }
       });
     }
