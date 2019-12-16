@@ -84,8 +84,119 @@
 
                 </div>
             </div>
+
             <div class="tab-pane" id="insert">Insert</div>
-            <div class="tab-pane" id="update">Update</div>
+            
+            <!-- UPDATE CODE -->
+            <div class="tab-pane" id="update">
+                <div class="row">
+    
+                    <!-- Navigation Buttons -->
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked" id="myTabs">
+                            <li class="active"><a href="#updateOneToOne" data-toggle="pill">One to One</a></li>
+                            <li><a href="#updateOneToMany" data-toggle="pill">One to Many</a></li>
+                            <li><a href="#updateManyToOne" data-toggle="pill">Many to One</a></li>
+                            <li><a href="#updateManyToMany" data-toggle="pill">Many to Many</a></li>
+                        </ul>
+                    </div>
+                        
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            
+                            <!-- Update ONE TO ONE-->
+                            <div class="tab-pane " id="updateOneToOne">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Listing ID
+                                        <span class="caret"></span></button>
+                                    <button id="updateManyToMany" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateOneToOne">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                    </ul>
+                                </div>
+                                <div id="divUpdateOneToOne" style="margin-top: 25px"> </div>
+                                <div class="form-group">
+                                    <label for="pool">Amenities: pool:</label>
+                                    <input type="text" class="form-control" id="pool">
+                                </div>
+                                <div class="form-group">
+                                    <label for="parking">Amenities: parking:</label>
+                                    <input type="text" class="form-control" id="parking">
+                                </div>
+                            </div>
+                                    
+                            <!-- Update ONE TO MANY-->
+                            <div class="tab-pane" id="updateOneToMany">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select User 
+                                        <span class="caret"></span></button>
+                                    <button id="updateManyToMany" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateOneToMany">
+                                        <li><a href="#">John Doe</a></li>
+                                        <li><a href="#">Jane Smith</a></li>
+                                        <li><a href="#">Kevin Smith</a></li>
+                                    </ul>
+                                </div>
+                                <div id="divUpdateOneToMany" style="margin-top: 25px"> </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" class="form-control" id="username">
+                                </div>
+                            </div>
+                                
+                            <!-- Update MANY TO ONE -->
+                            <div class="tab-pane" id="updateManyToOne">  
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Booking 
+                                        <span class="caret"></span></button>
+                                    <button id="updateManyToOne" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateManyToOne">
+                                        <li><a href="#">2019-12-01</a></li>
+                                        <li><a href="#">2020-12-01</a></li>
+                                        <li><a href="#">2019-12-24</a></li>
+                                    </ul>
+                                </div>
+                                <div id="divUpdateManyToOne" style="margin-top: 25px"> </div>
+                                <div class="form-group">
+                                    <label for="noofguests">Number of Guests:</label>
+                                    <input type="text" class="form-control" id="noofguests">
+                                </div>
+                            </div>
+                                  
+                            <!-- Update MANY TO MANY-->
+                            <div class="tab-pane" id="updateManyToMany">
+                                <div class="dropdown" >
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Rentee ID
+                                        <span class="caret"></span></button>
+                                    <button id="updateManyToMany" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateManyToMany">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                    </ul>
+                                </div>
+                                <div id="divUpdateManyToMany" style="margin-top: 25px"> </div>
+                                <div class="form-group">
+                                    <label for="startdate">Start Date:</label>
+                                    <input type="text" class="form-control" id="startdate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="noofguests">Number of Guests:</label>
+                                    <input type="text" class="form-control" id="noofguests">
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
             <div class="tab-pane" id="delete">
                 <div class="row">
 
