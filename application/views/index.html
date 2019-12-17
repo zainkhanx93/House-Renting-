@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>DB Operations</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -15,26 +18,40 @@
         <div class="panel-heading">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#search" role="tab" data-toggle="tab">Search</a></li>
+                <li class="active">
+                    <a href="#search" role="tab" data-toggle="tab">Search</a>
+                </li>
                 <li><a href="#insert" role="tab" data-toggle="tab">Insert</a></li>
                 <li><a href="#update" role="tab" data-toggle="tab">Update</a></li>
                 <li><a href="#delete" role="tab" data-toggle="tab">Delete</a></li>
             </ul>
-
         </div>
 
         <!-- Tab panes + Panel body -->
         <div class="panel-body tab-content">
             <div class="tab-pane active" id="search">
                 <div class="row">
-
                     <!-- Navigation Buttons -->
                     <div class="col-md-3">
                         <ul class="nav nav-pills nav-stacked" id="myTabs">
-                            <li class="active"><a href="#searchOneToOne" data-toggle="pill">One to One</a></li>
-                            <li><a href="#searchOneToMany" data-toggle="pill">One to Many</a></li>
-                            <li><a href="#searchManyToOne" data-toggle="pill">Many to One</a></li>
-                            <li id = "searchManyToManyData"><a href="#searchManyToMany" data-toggle="pill">Many to Many</a></li>
+                            <li class="active">
+                                <a href="#searchOneToOne" data-toggle="pill">One to One</a>
+                            </li>
+                            <li>
+                                <a href="#searchOneToMany" data-toggle="pill"
+                                >One to Many</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#searchManyToOne" data-toggle="pill"
+                                >Many to One</a
+                                >
+                            </li>
+                            <li id="searchManyToManyData">
+                                <a href="#searchManyToMany" data-toggle="pill"
+                                >Many to Many</a
+                                >
+                            </li>
                         </ul>
                     </div>
 
@@ -42,62 +59,338 @@
                     <div class="col-md-9">
                         <div class="tab-content">
                             <div class="tab-pane active" id="searchOneToOne">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Listing ID
-                                        <span class="caret"></span></button>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select Listing ID <span class="caret"></span>
+                                    </button>
                                     <ul class="dropdown-menu" id="searchOneOnOneList">
                                         <li><a href="#">1</a></li>
                                         <li><a href="#">2</a></li>
                                         <li><a href="#">3</a></li>
                                     </ul>
                                 </div>
-                                <div id="divSearchOneToOne" style="margin-top: 25px"> </div>
+                                <div id="divSearchOneToOne" style="margin-top: 25px"></div>
                             </div>
 
-
                             <div class="tab-pane" id="searchOneToMany">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Listing ID
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" id="searchOneOnManyList">
-
-                                    </ul>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select Listing ID <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="searchOneOnManyList"></ul>
                                 </div>
-                                <div id="divSearchOneToMany" style="margin-top: 25px"> </div>
+                                <div id="divSearchOneToMany" style="margin-top: 25px"></div>
                             </div>
 
                             <div class="tab-pane" id="searchManyToOne">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select Listing ID
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu" id="searchManyOnOneList">
-
-                                    </ul>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select Listing ID <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="searchManyOnOneList"></ul>
                                 </div>
-                                <div id="divSearchManyToOne" style="margin-top: 25px"> </div>
+                                <div id="divSearchManyToOne" style="margin-top: 25px"></div>
                             </div>
-                            <div class="tab-pane" id = "searchManyToMany">
-                                <div id="divSearchManyToMany" style="margin-top: 25px"> </div>
+                            <div class="tab-pane" id="searchManyToMany">
+                                <div
+                                        id="divSearchManyToMany"
+                                        style="margin-top: 25px"
+                                ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="insert">
+                <div class="row">
+
+                    <!-- Navigation Buttons -->
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked" id="insertTabs">
+                            <li class="active"><a href="#userPanel1" data-toggle="pill">User</a></li>
+                            <li><a href="#accountPanel1" data-toggle="pill">Account</a></li>
+                            <li><a href="#listingPanel1" data-toggle="pill">Listing</a></li>
+                            <li><a href="#bookingPanel1" data-toggle="pill">Booking</a></li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Content -->
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="userPanel1">
+                                <div class="dropdown">
+
+
+                                    <ul class="dropdown-menu" id="userList1"></ul>
+                                    <form>
+                                        Name : <br>
+                                        <input type="text" id="name" >
+                                        <br>
+                                        DOB(YYYY-MM-DD HH:MM:SS) : <br>
+                                        <input type="text" id="DOB">
+                                        <br>
+                                        Email : <br>
+                                        <input type="text" id="email1">
+                                        <br>
+                                        contact No : <br>
+                                        <input type="text" id="contactno">
+                                        <br>
+
+                                    </form>
+                                    <button id="insertUser" style="margin-top: 25px">Insert</button>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane" id="accountPanel1">
+                                <div class="dropdown">
+
+                                    <ul class="dropdown-menu" id="accountList1"></ul>
+                                    <form>
+                                        Username : <br>
+                                        <input type="text" id="username1">
+                                        <br>
+                                        Password : <br>
+                                        <input type="text" id="password">
+                                        <br>
+                                        User id : <br>
+                                        <input type="text" id="uid">
+                                        <br>
+
+
+                                    </form>
+                                    <button id="insertAccount" style="margin-top: 25px">Insert</button>
+
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane" id="listingPanel1">
+                                <div class="dropdown">
+
+                                    <ul class="dropdown-menu" id="listingList1"></ul>
+                                    <form>
+                                        RenterId : <br>
+                                        <input type="text" id="renterid">
+                                        <br>
+                                        Location : <br>
+                                        <input type="text" id="location">
+                                        <br>
+                                        Type (House, Apartment, Studio) : <br>
+                                        <input type="text" id="type">
+                                        <br>
+                                        Rooms : <br>
+                                        <input type="text" id="rooms">
+                                        <br>
+                                        Parking(0/1) : <br>
+                                        <input type="text" id="parking2">
+                                        <br>
+                                        Wifi(0/1) : <br>
+                                        <input type="text" id="wifi">
+                                        <br>
+                                        AC(0/1) : <br>
+                                        <input type="text" id="ac">
+                                        <br>
+                                        Pool(0/1) : <br>
+                                        <input type="text" id="pool2">
+                                        <br>
+                                        Charge Per Day : <br>
+                                        <input type="text" id="perday">
+                                        <br>
+                                        Deposit : <br>
+                                        <input type="text" id="deposit">
+                                        <br>
+                                        Cleaning : <br>
+                                        <input type="text" id="cleaning">
+                                        <br>
+                                    </form>
+                                    <button id="insertListing" style="margin-top: 25px">Insert</button>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="bookingPanel1">
+                                <div class="dropdown">
+
+                                    <ul class="dropdown-menu" id="bookingList1"></ul>
+                                    <form>
+                                        RenteeId : <br>
+                                        <input type="text" id="renteeid">
+                                        <br>
+                                        startDate(YYYY-MM-DD HH:MM:SS) : <br>
+                                        <input type="text" id="startDate1">
+                                        <br>
+                                        End Date(YYYY-MM-DD HH:MM:SS) : <br>
+                                        <input type="text" id="endDate">
+                                        <br>
+                                        Number of Guest : <br>
+                                        <input type="text" id="numofguest">
+                                        <br>
+                                        Listing ID : <br>
+                                        <input type="text" id="lid">
+                                        <br>
+
+
+                                    </form>
+                                    <button id="insertBooking" style="margin-top: 25px">Insert</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div class="tab-pane" id="insert">Insert</div>
-            <div class="tab-pane" id="update">Update</div>
-            <div class="tab-pane" id="delete">
+            <div class="tab-pane" id="update">
                 <div class="row">
 
                     <!-- Navigation Buttons -->
                     <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked" id="myTabsUpdate">
+                            <li class="active"><a href="#updateOneToOneTab" data-toggle="pill">One to One</a></li>
+                            <li ><a href="#updateOneToManyTab" data-toggle="pill">One to Many</a></li>
+                            <li><a href="#updateManyToOneTab" data-toggle="pill">Many to One</a></li>
+                            <li><a href="#updateManyToManyTab" data-toggle="pill">Many to Many</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="tab-content">
+
+                            <!-- Update ONE TO ONE-->
+                            <div class="tab-pane active " id="updateOneToOneTab">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button"
+                                            data-toggle="dropdown">Select Listing ID
+                                        <span class="caret"></span></button>
+                                    <button id="updateOneToOneDD" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateOneToOne">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pool">Amenities: pool (Enter true/false or 0/1 to update
+                                        values):</label>
+                                    <input type="text" class="form-control" id="pool">
+                                </div>
+                                <div class="form-group">
+                                    <label for="parking">Amenities: parking:</label>
+                                    <input type="text" class="form-control" id="parking">
+                                </div>
+                                <div id="divUpdateOneToOne" style="margin-top: 25px"></div>
+                                <div id="updateVal" style="visibility: hidden"></div>
+                            </div>
+
+                            <!-- Update ONE TO MANY-->
+                            <div class="tab-pane" id="updateOneToManyTab">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button"
+                                            data-toggle="dropdown">Select User
+                                        <span class="caret"></span></button>
+                                    <button id="updateOneToManyDD" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateOneToMany">
+                                        <li><a href="#">John Doe</a></li>
+                                        <li><a href="#">Jane Smith</a></li>
+                                        <li><a href="#">Kevin Smith</a></li>
+                                    </ul>
+                                </div>
+                              <!--  <div id="updateOneToManyDD" style="margin-top: 25px"></div>-->
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" class="form-control" id="username">
+                                </div>
+                                <div id="divUpdateOneToMany" style="margin-top: 25px"></div>
+                            </div>
+
+                            <!-- Update MANY TO ONE -->
+                            <div class="tab-pane" id="updateManyToOneTab">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button"
+                                            data-toggle="dropdown">Select Booking ID
+                                        <span class="caret"></span></button>
+                                    <button id="updateManyToOneDD" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateManyToOne">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                    </ul>
+                                </div>
+                                <div id="divUpdateManyToOneDD" style="margin-top: 25px"></div>
+                                <div class="form-group">
+                                    <label for="noofguests">Number of Guests:</label>
+                                    <input type="text" class="form-control" id="noofguests">
+                                    <div id="divUpdateManyToOne" style="margin-top: 25px"></div>
+                                </div>
+                            </div>
+
+                            <!-- Update MANY TO MANY-->
+                            <div class="tab-pane" id="updateManyToManyTab">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button"
+                                            data-toggle="dropdown">Select Rentee ID
+                                        <span class="caret"></span></button>
+                                    <button id="updateManyToManyDD" style="margin-top: 25px">Update</button>
+                                    <ul class="dropdown-menu" id="updateManyToMany">
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label for="startdate">Start Date:</label>
+                                    <input type="text" class="form-control" id="startdate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="noofguests">Number of Guests:</label>
+                                    <input type="text" class="form-control" id="noofguests1">
+                                </div>
+                                <div id="divUpdateManyToMany" style="margin-top: 25px"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="delete">
+                <div class="row">
+                    <!-- Navigation Buttons -->
+                    <div class="col-md-3">
                         <ul class="nav nav-pills nav-stacked" id="deleteTabs">
-                            <li class="active"><a href="#userPanel" data-toggle="pill">User</a></li>
-                            <li><a href="#accountPanel" data-toggle="pill">Account</a></li>
+                            <li class="active">
+                                <a href="#userPanel" data-toggle="pill">User</a>
+                            </li>
+                            <li>
+                                <a href="#accountPanel" data-toggle="pill">Account</a>
+                            </li>
                             <li><a href="#renteePanel" data-toggle="pill">Rentee</a></li>
                             <li><a href="#renterPanel" data-toggle="pill">Renter</a></li>
-                            <li><a href="#listingPanel" data-toggle="pill">Listing</a></li>
-                            <li ><a href="#bookingPanel" data-toggle="pill">Booking</a></li>
+                            <li>
+                                <a href="#listingPanel" data-toggle="pill">Listing</a>
+                            </li>
+                            <li>
+                                <a href="#bookingPanel" data-toggle="pill">Booking</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -105,73 +398,119 @@
                     <div class="col-md-9">
                         <div class="tab-content">
                             <div class="tab-pane active" id="userPanel">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select
-                                        <span class="caret"></span></button>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select <span class="caret"></span>
+                                    </button>
 
-                                         <ul class="dropdown-menu" id="userList"></ul>
-                                        <button id="deleteUser" style="margin-top: 25px">Delete</button>
-
+                                    <ul class="dropdown-menu" id="userList"></ul>
+                                    <button id="deleteUser" style="margin-top: 25px">
+                                        Delete
+                                    </button>
                                 </div>
-                                <div id="divUser" style="margin-top: 25px"> </div>
+                                <div id="divUser" style="margin-top: 25px"></div>
                             </div>
 
-
                             <div class="tab-pane" id="accountPanel">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select
-                                        <span class="caret"></span></button>
-                                        <ul class="dropdown-menu" id="accountList"></ul>
-                                        <button id="deleteAccount" style="margin-top: 25px">Delete</button>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="accountList"></ul>
+                                    <button id="deleteAccount" style="margin-top: 25px">
+                                        Delete
+                                    </button>
                                 </div>
-                                <div id="divAccount" style="margin-top: 25px"> </div>
+                                <div id="divAccount" style="margin-top: 25px"></div>
                             </div>
 
                             <div class="tab-pane" id="renteePanel">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select
-                                        <span class="caret"></span></button>
-                                        <ul class="dropdown-menu" id="renteeList"></ul>
-                                        <button id="deleteRentee" style="margin-top: 25px">Delete</button>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="renteeList"></ul>
+                                    <button id="deleteRentee" style="margin-top: 25px">
+                                        Delete
+                                    </button>
                                 </div>
-                                <div id="divRentee" style="margin-top: 25px"> </div>
+                                <div id="divRentee" style="margin-top: 25px"></div>
                             </div>
 
                             <div class="tab-pane" id="renterPanel">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select
-                                        <span class="caret"></span></button>
-                                        <ul class="dropdown-menu" id="renterList"></ul>
-                                        <button id="deleteRenter" style="margin-top: 25px">Delete</button>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="renterList"></ul>
+                                    <button id="deleteRenter" style="margin-top: 25px">
+                                        Delete
+                                    </button>
                                 </div>
 
-                                <div id="divRenter" style="margin-top: 25px"> </div>
+                                <div id="divRenter" style="margin-top: 25px"></div>
                             </div>
 
                             <div class="tab-pane" id="listingPanel">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select
-                                        <span class="caret"></span></button>
-                                        <ul class="dropdown-menu" id="listingList"> </ul>
-                                        <button id="deleteListing" style="margin-top: 25px">Delete</button>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="listingList"></ul>
+                                    <button id="deleteListing" style="margin-top: 25px">
+                                        Delete
+                                    </button>
                                 </div>
-                                <div id="divListing" style="margin-top: 25px"> </div>
+                                <div id="divListing" style="margin-top: 25px"></div>
                             </div>
 
                             <div class="tab-pane" id="bookingPanel">
-                                <div class="dropdown" >
-                                    <button class="btn dropdown-toggle" style="background: lightgrey" type="button" data-toggle="dropdown">Select
-                                        <span class="caret"></span></button>
-                                     <ul class="dropdown-menu" id="bookingList"></ul>
-                                    <button id="deleteBooking" style="margin-top: 25px">Delete</button>
+                                <div class="dropdown">
+                                    <button
+                                            class="btn dropdown-toggle"
+                                            style="background: lightgrey"
+                                            type="button"
+                                            data-toggle="dropdown"
+                                    >
+                                        Select <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="bookingList"></ul>
+                                    <button id="deleteBooking" style="margin-top: 25px">
+                                        Delete
+                                    </button>
                                 </div>
-                                <div id="divBooking" style="margin-top: 25px"> </div>
+                                <div id="divBooking" style="margin-top: 25px"></div>
                             </div>
                             <div id="deleteVal" style="visibility: hidden"></div>
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
@@ -179,4 +518,8 @@
 
 <script src="../javascripts/searchHelper.js"></script>
 <script src="../javascripts/deleteHelper.js"></script>
+<script src="../javascripts/update.js"></script>
+<script src="../javascripts/InsertHelper.js"></script>
 </html>
+
+

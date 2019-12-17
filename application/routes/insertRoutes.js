@@ -44,11 +44,12 @@ router.post("/user", (req, res) => {
               }
             ],
             function(err) {
-              if (err) console.log(err);
-              res.send({
-                success: true,
-                message: result.insertId
-              });
+              if (err){
+                console.log(err);
+                res.send(err);
+              }
+              else
+              res.send("User with id "+result.insertId +" is inserted successfully ");
             }
           );
         }
@@ -84,10 +85,8 @@ router.post("/account", (req, res) => {
         else {
           db.execute(insertAccountQuery, (err, result) => {
             if (err) console.log(err);
-            res.send({
-              success: true,
-              message: result.insertId
-            });
+            res.send( res.send("Account with id "+result.insertId +" is inserted successfully "));
+
           });
         }
       });
@@ -150,10 +149,7 @@ router.post("/listing", (req, res) => {
             ],
             function(err) {
               if (err) console.log(err);
-              res.send({
-                success: true,
-                message: result.insertId
-              });
+              res.send("Listing with id "+result.insertId +" is inserted successfully ");
             }
           );
         }
@@ -197,9 +193,7 @@ router.post("/booking", (req, res) => {
 
           db.execute(insertRenteeBookingQuery, (err, result) => {
             if (err) console.log(err);
-            res.send({
-              success: true
-            });
+            res.send("Listing is booked successfully ");
           });
         }
       });

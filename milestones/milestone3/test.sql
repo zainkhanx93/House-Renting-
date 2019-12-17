@@ -76,7 +76,7 @@ a foreign key constraint fails (`mydb`.`rentee_booking`, CONSTRAINT `RENTEE_RB_F
 */ 
 
 /* TEST 02 - Delete Account */
-DELETE FROM `mydb`.`Account` WHERE aid = '1';
+/*DELETE FROM `mydb`.`Account` WHERE aid = '1';*/
 
 /* TEST 03 - Delete Rentee */
 /* This delete statement thrown error

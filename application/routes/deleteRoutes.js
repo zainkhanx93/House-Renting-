@@ -113,8 +113,8 @@ router.get("/deleteBooking", (req, res) => {
   var { query } = req;
   var { bid } = query;
 
-  let checkBooking = `SELECT * FROM Booking WHERE uid = ${bid};`;
-  let deleteBooking = `DELETE FROM Booking WHERE uid = ${bid};`;
+  let checkBooking = `SELECT * FROM Booking WHERE bid = ${bid};`;
+  let deleteBooking = `DELETE FROM Booking WHERE bid = ${bid};`;
 
   db.execute(checkBooking, (err, booking) => {
     if (err) console.log(err);
