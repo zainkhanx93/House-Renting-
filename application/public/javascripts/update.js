@@ -47,7 +47,7 @@ $(document).on('click', '.dropdown-menu li a', function (e) {
 });
 
 $("#updateManyToManyDD").click(function (e) {
-    let noofguests = $("#noofguests").val();
+    let noofguests = $("#noofguests1").val();
     let startdate = $("#startdate").val();
     let renteeId = $("#updateVal").html();
     $.ajax({
