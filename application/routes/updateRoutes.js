@@ -3,20 +3,21 @@ const db = require("../model/database.js");
 const async = require("async");
 const router = express.Router();
 
-router.post("/updateListingOneToOne", (req, res) => {
-  var { body } = req;
-  var { lid, pool, parking } = body;
+router.get("/updateListingOneToOne", (req, res) => {
+  var { query } = req;
+  var { lid, pool, parking } = query;
 
   var updateListingOneToOne = `UPDATE Listing L, Amenities A SET A.pool = ${pool}, A.parking = ${parking} WHERE L.lid = ${lid} AND L.lid = A.lid;`;
+  console.log(updateListingOneToOne);
   db.execute(updateListingOneToOne, (err, result) => {
     if (err) console.log(err);
     res.send("Success");
   });
 });
 
-router.post("/updateListingOneToMany", (req, res) => {
-  var { body } = req;
-  var { name, email, username } = body;
+router.get("/updateListingOneToMany", (req, res) => {
+  var { query } = req;
+  var { name, email, username } = query;
 
   var updateListingOneToMany = `UPDATE User U, Account A SET U.email = '${email}', A.username = '${username}' WHERE U.name = '${name}' AND U.uid = A.uid;`;
   db.execute(updateListingOneToMany, (err, result) => {
@@ -25,9 +26,9 @@ router.post("/updateListingOneToMany", (req, res) => {
   });
 });
 
-router.post("/updateListingManyToMany", (req, res) => {
-  var { body } = req;
-  var { startdate, noofguests, renteeId } = body;
+router.get("/updateListingManyToMany", (req, res) => {
+  var { query } = req;
+  var { startdate, noofguests, renteeId } = query;
 
   var updateListingManyToMany = `UPDATE Rentee_Booking R, Booking B SET B.startdate = '${startdate}', B.noofguests = ${noofguests} WHERE R.renteeId = ${renteeId};`;
   db.execute(updateListingManyToMany, (err, result) => {
@@ -36,9 +37,9 @@ router.post("/updateListingManyToMany", (req, res) => {
   });
 });
 
-router.post("/updateListingManyToOne", (req, res) => {
-  var { body } = req;
-  var { noofguests, lid } = body;
+router.get("/updateListingManyToOne", (req, res) => {
+  var { query } = req;
+  var { noofguests, lid } = query;
 
   var updateListingManyToOne = `UPDATE Listing L, Booking B SET B.noofguests = ${noofguests} WHERE L.lid = ${lid} AND L.lid = B.lid;`;
   db.execute(updateListingManyToOne, (err, result) => {
