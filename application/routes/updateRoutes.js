@@ -43,7 +43,15 @@ router.post("/updateListingManyToOne", (req, res) => {
   var updateListingManyToOne = `UPDATE Listing L, Booking B SET B.noofguests = ${noofguests} WHERE L.lid = ${lid} AND L.lid = B.lid;`;
   db.execute(updateListingManyToOne, (err, result) => {
     if (err) console.log(err);
-    res.end("Success");
+    res.send("Success");
   });
 });
+
+router.get("/userNames", (req, res) => {
+  db.execute(`SELECT DISTINCT name FROM Listing`, (err, result) => {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
+
 module.exports = router;
